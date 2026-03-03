@@ -1,4 +1,3 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = require('./models/User');
@@ -7,7 +6,7 @@ const Product = require('./models/Product');
 
 const seed = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect('mongodb://localhost:27017/premiumwear');
     console.log('✅ Connected to MongoDB');
 
     await User.deleteMany({});
